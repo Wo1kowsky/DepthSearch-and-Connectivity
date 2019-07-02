@@ -4,14 +4,14 @@
 #include <string.h>
 using namespace std;
 
-int** FillGpaph(int &n, char* input = "E:\\Учеба\\2 курс\\СД\\4C++\\lab4\\lab4\\Debug\\test1.txt")
+int** FillGpaph(int &n, char* input = "Path")
 {
-	//Создаем файловый поток и связываем его с файлом
+	
 	ifstream in(input);
 	int **x = new int*;
 	if (in.is_open())
 	{
-		//Подсчет чисел в файле
+		
 		int count = 0;
 		int temp;
 
@@ -21,16 +21,16 @@ int** FillGpaph(int &n, char* input = "E:\\Учеба\\2 курс\\СД\\4C++\\lab4\\lab4\\
 			count++;
 		}
 
-		in.seekg(0, ios::beg); //переход в начало потока
+		in.seekg(0, ios::beg); 
 		in.clear();
 
-		n = sqrt(count); //число строк
+		n = sqrt(count);
 
 		x = new int*[n];
 		for (int i = 0; i < n; i++)
 			x[i] = new int[n];
 
-		//Считаем матрицу из файла
+	
 		for (int i = 0; i < n; i++)
 			for (int j = 0; j < n; j++)
 				in >> x[i][j];
